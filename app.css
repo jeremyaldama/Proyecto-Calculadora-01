@@ -38,7 +38,8 @@ input {
 }
 
 .tecla,
-.eliminar {
+.eliminar,
+.history {
     background-color: #fff9db;
     height: 80px;
     width: 80px;
@@ -47,6 +48,12 @@ input {
     font-size: 30px;
     color: #343a40;
     cursor: pointer;
+}
+
+.history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .eliminar {
