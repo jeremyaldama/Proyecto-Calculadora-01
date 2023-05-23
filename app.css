@@ -17,7 +17,8 @@
 .row-2,
 .row-3,
 .row-4,
-.row-5 {
+.row-5,
+.eliminar {
     display: flex;
     width: 100%;
     height: 100px;
@@ -29,12 +30,15 @@
 input {
     width: 38%;
     height: 40%;
+    /* font-family: 'Rubik', sans-serif; */
     border-radius: 30px;
     background-color: #fff9db;
     border: none;
-    flex-grow: 1;
+    width: 168px;
     height: 70%;
     padding-left: 20px;
+    font-size: 30px;
+    color: #343a40;
 }
 
 .tecla,
@@ -48,6 +52,7 @@ input {
     font-size: 30px;
     color: #343a40;
     cursor: pointer;
+    gap:  18px;
 }
 
 .history {
