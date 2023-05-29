@@ -132,7 +132,7 @@ Para el fondooo
 
 .tecla,
 .eliminar,
-.history {
+.history-btn {
   background-color: var(--boton-color);
   height: 80px;
   width: 80px;
@@ -183,8 +183,6 @@ Para el fondooo
   color: var(--hover-color);
 }
 .teclas {
-  /* display: flex;
-  justify-content: center; */
   padding: 10px 5px;
   margin: 0 auto;
 }
@@ -205,8 +203,9 @@ Para el fondooo
 }
 
 .historial {
-  width: 200px;
   padding: 25px;
+  max-height: 655px;
+  overflow-y: scroll;
 }
 
 .hidden {
@@ -216,6 +215,5 @@ Para el fondooo
 ul {
   padding: 0px !important;
   list-style: none;
-  font-family: "Roboto", sans-serif;
   font-size: 20px;
 }
