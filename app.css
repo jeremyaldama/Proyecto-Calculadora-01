@@ -192,12 +192,15 @@ Para el fondooo
 .centrar {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  row-gap: 20px;
 }
 
 @media (min-width: 992px) {
   .centrar {
     flex-direction: row;
+    column-gap: 20px;
   }
 }
 
