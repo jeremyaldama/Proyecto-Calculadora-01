@@ -1,7 +1,7 @@
 const teclas = document.querySelector(".teclas");
 const resultado = document.querySelector("input");
-const toOperationsRecordSectionButton =
-  document.getElementById("history-button");
+const historial = document.querySelector(".historial");
+const historialList = document.querySelector("ul");
 
 let resultado_cal = "";
 let sol;
@@ -18,7 +18,7 @@ function chMode() {
 }
 
 const updateDisplay = function (teclaValor) {
-  resultado_cal += teclaValor;
+  resultado_cal += `${teclaValor}`;
   resultado.value = resultado_cal;
   if (teclaValor === "C") {
     resultado.value = "";
@@ -29,15 +29,23 @@ const updateDisplay = function (teclaValor) {
 const showResult = function () {
   try {
     sol = Number.parseFloat(eval(resultado_cal)).toFixed(2);
-    if (isNaN(sol)) {
+    if (!isFinite(sol)) {
       throw new Error("Operación inválida");
     }
+
+    if (sol.slice(-2) === "00") {
+      sol = sol.slice(0, -3);
+    }
+
+    let html = `<li>${resultado_cal + " = " + sol}</li>
+                <hr>`;
+    historialList.insertAdjacentHTML("afterBegin", html);
     resultado.value = sol;
     resultado_cal = sol;
   } catch (error) {
     resultado.value = "Error";
   }
-}
+};
 
 const calc = function (e) {
   const tecla = e.target;
@@ -54,6 +62,14 @@ teclas.addEventListener("click", function (e) {
   const tecla = e.target;
   if (tecla.classList.contains("tecla")) {
     calc(e);
+  }
+  console.dir(tecla);
+  if (
+    tecla.classList.contains("history-btn") ||
+    tecla.tagName == "svg" ||
+    tecla.tagName == "path"
+  ) {
+    historial.classList.toggle("hidden");
   }
 });
 
