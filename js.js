@@ -60,10 +60,6 @@ const calc = function (e) {
 
 teclas.addEventListener("click", function (e) {
   const tecla = e.target;
-  if (tecla.classList.contains("tecla")) {
-    calc(e);
-  }
-  console.dir(tecla);
   if (
     tecla.classList.contains("history-btn") ||
     tecla.tagName == "svg" ||
@@ -71,6 +67,10 @@ teclas.addEventListener("click", function (e) {
   ) {
     historial.classList.toggle("hidden");
   }
+  else if (tecla.classList.contains("tecla")) {
+    calc(e);
+  };
+  console.dir(tecla);
 });
 
 document.addEventListener("keypress", function (e) {
