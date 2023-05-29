@@ -18,6 +18,11 @@ function chMode() {
 }
 
 const updateDisplay = function (teclaValor) {
+  if (teclaValor === "Backspace") {
+    resultado_cal = resultado_cal.slice(0, -1);
+    resultado.value = resultado_cal;
+    return;
+  }
   resultado_cal += `${teclaValor}`;
   resultado.value = resultado_cal;
   if (teclaValor === "C") {
@@ -73,7 +78,7 @@ teclas.addEventListener("click", function (e) {
   console.dir(tecla);
 });
 
-document.addEventListener("keypress", function (e) {
+document.addEventListener("keydown", function (e) {
   console.log(e);
   if (
     (e.key >= 0 && e.key <= 9) ||
@@ -81,7 +86,8 @@ document.addEventListener("keypress", function (e) {
     e.key === "/" ||
     e.key === "+" ||
     e.key === "-" ||
-    e.key === "."
+    e.key === "." ||
+    e.key === "Backspace"
   ) {
     updateDisplay(e.key);
   }
